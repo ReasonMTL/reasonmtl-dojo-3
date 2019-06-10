@@ -1,0 +1,28 @@
+{
+  "name": "reasonmtl-dojo-3",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "concurrently -c --kill-others 'yarn:start:bsb' 'yarn:start:parcel'",
+    "start:bsb": "bsb -make-world -w",
+    "start:parcel": "parcel public/index.html --open",
+    "clean": "bsb -clean-world && rm -rf .cache dist",
+    "build": "yarn clean && bsb -make-world && parcel build public/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "schema": "yarn send-introspection-query https://reasonable-pokedex-git-cors.davidcorticchiato.now.sh/graphql"
+  },
+  "author": "Thibaut Mattio",
+  "license": "MIT",
+  "dependencies": {
+    "bs-css": "^8.0.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "reason-apollo": "^0.16.3",
+    "reason-react": "^0.7.0"
+  },
+  "devDependencies": {
+    "bs-platform": "^5.0.4",
+    "concurrently": "^4.1.0",
+    "graphql_ppx": "^0.2.8",
+    "parcel-bundler": "^1.12.3"
+  }
+}
