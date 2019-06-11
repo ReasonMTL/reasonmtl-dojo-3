@@ -17,7 +17,8 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "reason-apollo": "^0.16.3",
-    "reason-react": "^0.7.0"
+    "reason-react": "^0.7.0",
+    "tachyons": "^4.11.1"
   },
   "devDependencies": {
     "bs-platform": "^5.0.4",
