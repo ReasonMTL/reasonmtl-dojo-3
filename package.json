@@ -8,7 +8,7 @@
     "clean": "bsb -clean-world && rm -rf .cache dist",
     "build": "yarn clean && bsb -make-world && parcel build public/index.html",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "schema": "yarn send-introspection-query https://reasonable-pokedex-git-cors.davidcorticchiato.now.sh/graphql"
+    "schema": "yarn send-introspection-query https://reasonable-pokedex.com/graphql"
   },
   "author": "Thibaut Mattio",
   "license": "MIT",
