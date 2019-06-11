@@ -16,6 +16,8 @@ module Style = {
     padding(px(20)),
     color(white),
   ]);
+
+  let pokemonImg = style([width(px(200))])
 };
 
 module PokemonQuery = [%graphql
@@ -53,7 +55,10 @@ let make = () => {
           <div className=Style.pokelist>
             {React.array(
                Belt.Array.map(response##pokemons, pokemon =>
-                 <div className=Style.pokemon key={string_of_int(pokemon##id)}> {React.string(pokemon##name)} </div>
+                 <div className=Style.pokemon key={string_of_int(pokemon##id)}> 
+                  {React.string(pokemon##name)} 
+                  <img src={pokemon##sprites##default##front} className=Style.pokemonImg />
+                  </div>
                ),
              )}
           </div>;
