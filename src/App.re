@@ -2,12 +2,27 @@ module Style = {
   open Css;
 
   let title = style([textAlign(center), color(hex("666"))]);
+  let pokelist = style([
+    display(flexBox),
+    flexWrap(wrap),
+    width(pct(100.0)),
+    ]);
+
+  let pokemon = style([
+    height(px(300)),
+    width(px(300)),
+    backgroundColor(rgba(50, 20, 100, 1.0)),
+    margin(px(20)),
+    padding(px(20)),
+    color(white),
+  ]);
 };
 
 module PokemonQuery = [%graphql
   {|
     query {
       pokemons(offset: 0) {
+        id
         name
         sprites {
           default {
@@ -35,10 +50,10 @@ let make = () => {
         | Data(response) =>
           Js.log(response);
 
-          <div className="flex flex-column">
+          <div className=Style.pokelist>
             {React.array(
                Belt.Array.map(response##pokemons, pokemon =>
-                 <span> {React.string(pokemon##name)} </span>
+                 <div className=Style.pokemon key={string_of_int(pokemon##id)}> {React.string(pokemon##name)} </div>
                ),
              )}
           </div>;
